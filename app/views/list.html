@@ -1,0 +1,50 @@
+<div ng-controller="ListCtrl">
+  <table class="table table-bordered">
+	  <th>
+		ID
+	</th><th>
+		Name
+	</th>
+	<th>
+		Phone
+	</th>
+	<th>
+		City
+	</th>
+	<th>
+		Address1
+	</th>
+	<th>
+		Address2
+	</th>
+	<th>
+		Postal Code
+	</th>
+	<tr ng-repeat="employee in employeeList">
+		<td>
+			{{employee.id}}
+		</td>
+		<td>
+			{{employee.name}}
+		</td>
+		<td ng-if="employee.phone">
+			{{employee.phone}}
+		</td>
+		<td ng-if="!employee.phone">
+			NA
+		</td>
+		<td>
+			{{employee.city}}
+		</td>
+		<td>
+			{{employee.address1}}
+		</td>
+		<td>
+			{{employee.address2}}
+		</td>
+		<td>
+			{{employee.postalCode}}
+		</td>
+	</tr>
+  </table>
+</div>

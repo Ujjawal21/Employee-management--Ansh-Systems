@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular
+var angularApp = angular
   .module('employeeCrudApp', [
     'ngAnimate',
     'ngCookies',
@@ -18,17 +18,17 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+      .when('/employees', {
+        templateUrl: 'views/list.html',
+        controller: 'ListCtrl',
+        controllerAs: 'list'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      .when('/employees/add', {
+        templateUrl: 'views/add.html',
+        controller: 'AddEmployeeCtrl',
+        controllerAs: 'add'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/employees'
       });
   });

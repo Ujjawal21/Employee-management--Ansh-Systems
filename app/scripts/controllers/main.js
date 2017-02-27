@@ -8,10 +8,14 @@
  * Controller of the employeeCrudApp
  */
 angular.module('employeeCrudApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
+	  $scope.employeeList = [];
+    $http({
+        method : "GET",
+        url : "/listUsers"
+    }).then(function mySucces(response) {
+        $scope.employeeList = response.data;
+    }, function myError(response) {
+        console.log(response.statusText);
+    });
+}]);
