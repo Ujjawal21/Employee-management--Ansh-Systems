@@ -49,7 +49,52 @@ app.get('/listUsers', function (req, res) {
 		   res.json(rows);
 		 });
 	 });
-})
+});
+
+app.get('/api/employee', function (req, res) {
+	con.connect(function(error){
+		con.query('SELECT * FROM employees where id = ?', [req.query.id],function(err, rows){
+		   if (err) {
+			   console.log(err);
+		   }
+
+		   console.log('Data received from Db:\n');
+		   console.log(rows);
+		   res.json(rows);
+		 });
+	 });
+});
+
+app.post('/api/employee', function (req, res) {
+	con.connect(function(error){
+		con.query('INSERT INTO employees SET ?', [req.query],function(err, rows){
+		   if (err) {
+			   console.log(err);
+		   }
+
+		   console.log('Data received from Db:\n');
+		   console.log(rows);
+		   res.json({rows: rows});
+		 });
+	 });
+});
+
+app.put('/api/employee', function (req, res) {
+	con.connect(function(error){
+		con.query('UPDATE employees SET name = ?, phone = ?, city = ?, ' +
+				'address1 = ?, address2 = ?, postalCode = ? Where id = ?',
+				[req.query.name, req.query.phone, req.query.city, req.query.address1,
+				req.address2, req.query.postalCode, req.query.id],function(err, rows){
+		   if (err) {
+			   console.log(err);
+		   }
+
+		   console.log('Data received from Db:\n');
+		   console.log(rows);
+		   res.json({rows: rows});
+		 });
+	 });
+});
 
 var server = app.listen(8081, function () {
 

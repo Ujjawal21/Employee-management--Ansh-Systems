@@ -18,15 +18,22 @@ var angularApp = angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
+	.when('/employees/add', {
+	  templateUrl: 'views/detail.html',
+	  controller: 'OperationCtrl',
+	  controllerAs: 'add',
+	  action: 'addEmployee'
+	})
       .when('/employees', {
         templateUrl: 'views/list.html',
         controller: 'ListCtrl',
         controllerAs: 'list'
       })
-      .when('/employees/add', {
-        templateUrl: 'views/add.html',
-        controller: 'AddEmployeeCtrl',
-        controllerAs: 'add'
+	  .when('/employees/:resource/edit', {
+        templateUrl: 'views/detail.html',
+        controller: 'OperationCtrl',
+        controllerAs: 'add',
+		action: 'editEmployee'
       })
       .otherwise({
         redirectTo: '/employees'

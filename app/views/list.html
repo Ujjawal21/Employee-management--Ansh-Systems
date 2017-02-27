@@ -24,6 +24,9 @@
 	<th>
 		Postal Code
 	</th>
+	<th>
+		Edit
+	</th>
 	<tr ng-repeat="employee in employeeList | filter: searchKeyword">
 		<td>
 			{{employee.id}}
@@ -48,6 +51,11 @@
 		</td>
 		<td>
 			{{employee.postalCode}}
+		</td>
+		<td>
+			<a href="#/employees/{{employee.id}}/edit">
+				<i class="fa fa-2x fa-pencil" aria-hidden="true"></i>
+			</a>
 		</td>
 	</tr>
   </table>
