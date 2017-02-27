@@ -1,5 +1,9 @@
 <div ng-controller="ListCtrl">
   <table class="table table-bordered">
+	  <tr>
+		   <td>Search :</td>
+		   <td><input ng-model="searchKeyword"/></td>
+	   </tr>
 	  <th>
 		ID
 	</th><th>
@@ -20,7 +24,7 @@
 	<th>
 		Postal Code
 	</th>
-	<tr ng-repeat="employee in employeeList">
+	<tr ng-repeat="employee in employeeList | filter: searchKeyword">
 		<td>
 			{{employee.id}}
 		</td>

@@ -10,6 +10,8 @@
 angular.module('employeeCrudApp')
   .controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
 	  $scope.employeeList = [];
+	  $scope.searchKeyword = '';
+	  
     $http({
         method : "GET",
         url : "/listUsers"
